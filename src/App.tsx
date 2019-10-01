@@ -1,16 +1,10 @@
 import * as React from 'react';
-import { SafeAreaView, StatusBar, Text, View } from 'react-native';
+import { useScreens } from 'react-native-screens';
+
+import AppContainer from './config/routes/routes';
 
 const App = () => {
-    return (
-        <>
-            <StatusBar barStyle="dark-content" />
-            <SafeAreaView>
-                <View>
-                    <Text style={{ fontSize: 21 }}>teasdfste</Text>
-                </View>
-            </SafeAreaView>
-        </>
-    );
+    useScreens();
+    return <AppContainer />;
 };
 export default App;

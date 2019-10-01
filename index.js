@@ -1,2 +1,2 @@
-import '__build__';
+import './compiled';
 
