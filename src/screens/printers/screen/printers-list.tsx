@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { NavigationStackOptions } from 'react-navigation-stack';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
@@ -15,10 +16,9 @@ class PrintersList extends React.Component<Props> {
     });
 
     public render() {
-        const { printersReducer } = this.props;
         return (
             <View>
-                <Text>{`List of printers ${printersReducer.loading}`}</Text>
+                <Icon name="plus" size={30} color="#000" />
             </View>
         );
     }
