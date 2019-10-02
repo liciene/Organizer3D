@@ -9,7 +9,8 @@
         "types": ["react", "react-native", "jest"],
         "resolveJsonModule": true,
         "skipLibCheck": true,
-        "noImplicitAny": true
+        "noImplicitAny": true,
+        "removeComments": true
     },
     "include": ["src/**/*"],
     "exclude": ["android", "ios", "compiled", "__tests__/**/*.test.ts"]
