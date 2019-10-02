@@ -5,8 +5,8 @@ import { PrintersList } from '../../screens/printers';
 
 const AppStack = createStackNavigator({
     printersList: {
-        screen: PrintersList
-    }
+        screen: PrintersList,
+    },
 });
 
 const AppContainer = createAppContainer(AppStack);

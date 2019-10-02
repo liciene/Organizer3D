@@ -4,6 +4,7 @@ module.exports = {
         'plugin:prettier/recommended',
         'airbnb-typescript',
         'airbnb-typescript-prettier',
+        'esnext',
         'eslint:recommended'
     ],
 
@@ -17,6 +18,11 @@ module.exports = {
     rules: {
         // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
         // e.g. "@typescript-eslint/explicit-function-return-type": "off",
+        'import/no-extraneous-dependencies': ['error', { packageDir: './' }],
+        'import/no-namespace': 'off',
+        'import/no-cycle': [2, { maxDepth: 1 }],
+        'no-invalid-this': 'off',
+        'import/prefer-default-export': 'off'
     },
     settings: {
         'import/resolver': {

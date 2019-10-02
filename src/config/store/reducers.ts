@@ -8,7 +8,7 @@ const navReducer = createNavigationReducer(AppContainer);
 
 const reducers = combineReducers({
     printerReducer,
-    nav: navReducer
+    nav: navReducer,
 });
 
 export default reducers;

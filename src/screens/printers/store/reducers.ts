@@ -1,11 +1,13 @@
 import * as types from './types';
-import { Actions } from './typescript';
+import { Actions, State } from './typescript';
 
-const initialState = {
-    loading: false
+const initialState: State = {
+    loading: false,
+    printers: [],
+    printerSelected: undefined,
 };
 
-const printerReducer = (state = initialState, action: Actions) => {
+const printersReducer = (state: State = initialState, action: Actions): State => {
     switch (action.type) {
         case types.ADD_NEW_PRINTER:
             return { ...state };
@@ -15,4 +17,4 @@ const printerReducer = (state = initialState, action: Actions) => {
     }
 };
 
-export default printerReducer;
+export default printersReducer;
