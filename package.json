@@ -11,6 +11,9 @@
     "lint": "tsc --noEmit && eslint --ext .js,.jsx,.ts,.tsx ./src"
   },
   "dependencies": {
+    "@react-native-community/async-storage": "^1.6.2",
+    "@react-native-community/netinfo": "^4.3.0",
+    "@redux-offline/redux-offline": "^2.5.2-native.1",
     "husky": "^3.0.7",
     "react": "16.8.1",
     "react-native": "0.61.1",
@@ -19,7 +22,12 @@
     "react-native-screens": "^2.0.0-alpha.3",
     "react-navigation": "^4.0.10",
     "react-navigation-drawer": "^2.2.2",
+    "react-navigation-redux-helpers": "^4.0.0",
     "react-navigation-stack": "^1.9.3",
+    "react-redux": "^7.1.1",
+    "redux": "^4.0.4",
+    "redux-saga": "^1.1.1",
+    "typesafe-actions": "^4.4.2",
     "typescript": "^3.6.3"
   },
   "devDependencies": {
@@ -30,6 +38,9 @@
     "@types/react": "^16.9.4",
     "@types/react-native": "^0.60.17",
     "@types/react-navigation": "^3.0.8",
+    "@types/react-redux": "^7.1.4",
+    "@types/redux": "^3.6.0",
+    "@types/redux-saga": "^0.10.5",
     "@typescript-eslint/eslint-plugin": "^2.3.2",
     "@typescript-eslint/parser": "^2.3.2",
     "babel-jest": "^24.1.0",

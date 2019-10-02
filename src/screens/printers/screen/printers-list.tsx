@@ -6,7 +6,7 @@ class PrintersList extends React.Component {
     public render() {
         return (
             <View>
-                <Text>Tsext</Text>
+                <Text>asdasd</Text>
             </View>
         );
     }
