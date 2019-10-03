@@ -1,4 +1,4 @@
+import NewPrinter from './screen/new-printer';
 import PrintersList from './screen/printers-list';
 
-// eslint-disable-next-line import/prefer-default-export
-export { PrintersList };
+export { PrintersList, NewPrinter };

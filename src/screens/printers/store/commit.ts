@@ -5,8 +5,8 @@ import * as ts from './typescript';
 
 export function* AddNewPrinter(meta: ts.CommitAddNewPrinter) {
     const printer = {
-        id: (Math.random() * 1234567).toFixed(0),
-        ...meta.meta,
+        ...meta.payload,
     };
+
     yield put({ type: types.ADD_NEW_PRINTER_FULFILLED, payload: { printer } });
 }

@@ -1,14 +1,7 @@
 import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
 
-import { PrintersList } from '../../screens/printers';
+import AppDrawer from './drawer';
 
-const AppStack = createStackNavigator({
-    printersList: {
-        screen: PrintersList,
-    },
-});
-
-const AppContainer = createAppContainer(AppStack);
+const AppContainer = createAppContainer(AppDrawer);
 
 export default AppContainer;
