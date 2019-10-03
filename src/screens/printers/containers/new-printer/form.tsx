@@ -1,7 +1,7 @@
 import { FormikErrors } from 'formik';
 import * as React from 'react';
 import { View } from 'react-native';
-import { Input as ElementInput } from 'react-native-elements';
+import { TextField } from 'react-native-material-textfield';
 
 import { Button, Input } from '../../components/new-printer';
 import { Printer } from '../../store/typescript';
@@ -14,11 +14,11 @@ export interface Props {
 }
 
 export default class Form extends React.PureComponent<Props> {
-    model!: ElementInput | null;
+    model!: TextField | null;
 
-    cost!: ElementInput | null;
+    cost!: TextField | null;
 
-    watts!: ElementInput | null;
+    watts!: TextField | null;
 
     public render() {
         const { handleSubmit, values, errors, setFieldValue } = this.props;
@@ -27,8 +27,9 @@ export default class Form extends React.PureComponent<Props> {
                 <Input
                     label="Name"
                     placeholder="Insert the printer name (Ex: Prometheus)"
-                    errorMessage={errors.name}
+                    error={errors.name}
                     value={values.name}
+                    characterRestriction={15}
                     returnKeyType="next"
                     onChangeText={text => setFieldValue('name', text)}
                     onSubmitEditing={() => {
@@ -42,7 +43,8 @@ export default class Form extends React.PureComponent<Props> {
                     label="Model"
                     onChangeText={text => setFieldValue('model', text)}
                     placeholder="Insert the printer model (Ex: Prusa i3)"
-                    errorMessage={errors.model}
+                    characterRestriction={30}
+                    error={errors.model}
                     value={values.model}
                     returnKeyType="next"
                     onSubmitEditing={() => {
@@ -56,8 +58,11 @@ export default class Form extends React.PureComponent<Props> {
                     label="Cost"
                     onChangeText={text => setFieldValue('cost', text)}
                     placeholder="Insert the printer cost (Ex: 15000)"
-                    errorMessage={errors.cost}
+                    error={errors.cost}
+                    keyboardType="numeric"
+                    characterRestriction={8}
                     value={values.cost}
+                    prefix="R$ "
                     returnKeyType="next"
                     onSubmitEditing={() => {
                         this.watts.focus();
@@ -70,7 +75,10 @@ export default class Form extends React.PureComponent<Props> {
                     label="Watts"
                     onChangeText={text => setFieldValue('wattsUsage', text)}
                     placeholder="Insert the watts usage of printer (Ex: 250)"
-                    errorMessage={errors.wattsUsage}
+                    keyboardType="numeric"
+                    error={errors.wattsUsage}
+                    characterRestriction={4}
+                    suffix="W"
                     value={values.wattsUsage}
                     onSubmitEditing={handleSubmit}
                 />

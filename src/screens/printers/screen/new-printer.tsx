@@ -10,6 +10,7 @@ import { bindActionCreators, Dispatch } from 'redux';
 
 import { RootActions, RootState } from '../../../config/store/typescript';
 import { Form } from '../containers/new-printer';
+import validationSchema from '../services/new-printer/validationSchema';
 import * as printerActions from '../store/actions';
 import { Printer } from '../store/typescript';
 import styles from './styles/new-printer';
@@ -19,7 +20,11 @@ class NewPrinter extends React.Component<Props> {
     public static navigationOptions = ({ navigation }: NavigationInjectedProps): NavigationStackOptions => ({
         header: () => (
             <Header
-                leftComponent={{ icon: 'arrow-left', type: 'material-community', onPress: () => navigation.goBack() }}
+                leftComponent={{
+                    icon: 'arrow-left',
+                    type: 'material-community',
+                    onPress: () => navigation.goBack(),
+                }}
                 centerComponent={{ text: 'New Printer' }}
             />
         ),
@@ -48,6 +53,9 @@ class NewPrinter extends React.Component<Props> {
                         cost: '',
                         wattsUsage: '',
                     }}
+                    validateOnBlur={false}
+                    validateOnChange={false}
+                    validationSchema={validationSchema}
                     onSubmit={this.handleSubmit}
                     render={(formikProps: FormikProps<Printer>) => (
                         <View style={styles.container}>
