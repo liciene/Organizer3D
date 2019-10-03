@@ -36,10 +36,10 @@ class NewPrinter extends React.Component<Props> {
     }
 
     protected handleSubmit = (values: Printer) => {
-        const { printerDispatch } = this.props;
-        console.log(values);
+        const { printerDispatch, navigation } = this.props;
 
         printerDispatch.addNewPrinter(values);
+        navigation.goBack();
     };
 
     public render() {
@@ -47,7 +47,7 @@ class NewPrinter extends React.Component<Props> {
             <KeyboardAwareScrollView keyboardShouldPersistTaps="handled" enableOnAndroid>
                 <Formik<Printer>
                     initialValues={{
-                        id: -1,
+                        id: (Math.random() * Date.now()).toFixed(0),
                         name: '',
                         model: '',
                         cost: '',

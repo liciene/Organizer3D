@@ -3,7 +3,7 @@ import * as types from './types';
 // #region General
 
 export interface Printer {
-    id: number;
+    id: string;
     name: string;
     model: string;
     cost: string;
@@ -31,9 +31,15 @@ interface AddNewPrinter {
     type: typeof types.ADD_NEW_PRINTER;
 }
 
+interface AddNewPrinterFulFilled {
+    type: typeof types.ADD_NEW_PRINTER_FULFILLED;
+    payload: {
+        printer: Printer;
+    };
+}
 // #endregion
 
-export type Actions = AddNewPrinter;
+export type Actions = AddNewPrinter | AddNewPrinterFulFilled;
 
 export interface State {
     loading: boolean;
@@ -46,7 +52,7 @@ export interface State {
 
 export interface CommitAddNewPrinter {
     type: typeof types.ADD_NEW_PRINTER;
-    meta: MetaAddNewPrinter;
+    payload: MetaAddNewPrinter;
 }
 
 // #endregion

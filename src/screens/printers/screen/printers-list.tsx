@@ -44,6 +44,7 @@ class PrintersList extends React.Component<Props> {
                     data={printersReducer.printers}
                     renderItem={this.renderItem}
                     ListEmptyComponent={this.ListEmptyComponent}
+                    refreshing={printersReducer.loading}
                 />
             </>
         );

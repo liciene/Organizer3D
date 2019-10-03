@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { applyMiddleware, compose, createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 
+import printerMiddleware from '../../screens/printers/store/saga-middleware';
 import AppContainer from '../routes/routes';
 import reducers from './reducers';
 import { RootState } from './typescript.d';
@@ -47,6 +48,7 @@ function configureStore() {
 
     // Run All Sagas
 
+    sagaMiddleware.run(printerMiddleware);
     // Export Store
 
     return { store, AppRedux };

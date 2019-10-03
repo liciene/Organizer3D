@@ -19,10 +19,12 @@ const InputComponent = React.forwardRef((props: TextFieldProps, ref: Ref) => {
         suffix,
         characterRestriction,
         keyboardType,
+        autoFocus,
     } = props;
     return (
         <View style={styles.container}>
             <TextField
+                autoFocus={autoFocus}
                 ref={ref}
                 value={value}
                 label={label}

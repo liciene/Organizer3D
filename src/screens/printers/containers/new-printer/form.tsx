@@ -25,6 +25,7 @@ export default class Form extends React.PureComponent<Props> {
         return (
             <View>
                 <Input
+                    autoFocus
                     label="Name"
                     placeholder="Insert the printer name (Ex: Prometheus)"
                     error={errors.name}
@@ -60,7 +61,6 @@ export default class Form extends React.PureComponent<Props> {
                     placeholder="Insert the printer cost (Ex: 15000)"
                     error={errors.cost}
                     keyboardType="numeric"
-                    characterRestriction={8}
                     value={values.cost}
                     prefix="R$ "
                     returnKeyType="next"
@@ -77,7 +77,6 @@ export default class Form extends React.PureComponent<Props> {
                     placeholder="Insert the watts usage of printer (Ex: 250)"
                     keyboardType="numeric"
                     error={errors.wattsUsage}
-                    characterRestriction={4}
                     suffix="W"
                     value={values.wattsUsage}
                     onSubmitEditing={handleSubmit}
