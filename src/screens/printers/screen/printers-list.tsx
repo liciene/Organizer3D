@@ -28,11 +28,14 @@ class PrintersList extends React.Component<Props> {
         super(props);
         this.handleSelectPrinter = this.handleSelectPrinter.bind(this);
         this.handleDeletePrinter = this.handleDeletePrinter.bind(this);
+        this.handleItemPress = this.handleItemPress.bind(this);
     }
 
     protected handleSelectPrinter = () => {};
 
     protected handleDeletePrinter = () => {};
+
+    protected handleItemPress = () => {};
 
     protected renderItem = ({ item }: { item: Printer }) => {
         const { printersReducer } = this.props;
@@ -44,6 +47,7 @@ class PrintersList extends React.Component<Props> {
             <RenderItem
                 handleDeletePrinter={this.handleDeletePrinter}
                 handleSelectPrinter={this.handleSelectPrinter}
+                handleItemPress={this.handleItemPress}
                 item={item}
                 selected={selected}
             />

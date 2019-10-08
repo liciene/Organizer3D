@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View } from 'react-native';
-import { Divider, IconButton, Menu, Subheading, Surface, Title } from 'react-native-paper';
+import { Divider, IconButton, Menu, Subheading, Surface, Title, TouchableRipple } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import { Printer } from '../../store/typescript';
@@ -11,24 +11,27 @@ interface Props {
     selected: boolean;
     handleDeletePrinter: (id: string) => void;
     handleSelectPrinter: (id: string) => void;
+    handleItemPress: (id: string) => void;
 }
 
 const RenderItem = (props: Props) => {
-    const { item, selected, handleDeletePrinter, handleSelectPrinter } = props;
+    const { item, selected, handleDeletePrinter, handleItemPress, handleSelectPrinter } = props;
 
     const [menuVisible, handleMenuVisible] = React.useState(false);
 
     return (
         <Surface style={styles.container}>
-            <View style={styles.subContainer}>
-                <View style={styles.iconContainer}>
-                    <Icon name={selected ? 'printer-3d-nozzle-outline' : 'printer-3d'} size={32} />
-                </View>
-                <View style={styles.detailContainer}>
-                    <Title>{item.name}</Title>
-                    <Subheading>{item.model}</Subheading>
-                </View>
-            </View>
+            <TouchableRipple onPress={() => handleItemPress(item.id)} style={styles.subContainer}>
+                <>
+                    <View style={styles.iconContainer}>
+                        <Icon name={selected ? 'printer-3d-nozzle-outline' : 'printer-3d'} size={32} />
+                    </View>
+                    <View style={styles.detailContainer}>
+                        <Title>{item.name}</Title>
+                        <Subheading>{`${item.model} - $${item.cost} - ${item.wattsUsage}W`}</Subheading>
+                    </View>
+                </>
+            </TouchableRipple>
             <View>
                 <Menu
                     anchor={<IconButton icon="more-vert" onPress={() => handleMenuVisible(true)} />}
