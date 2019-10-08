@@ -40,7 +40,7 @@ class NewPrinter extends React.Component<Props> {
 
     public render() {
         return (
-            <KeyboardAwareScrollView keyboardShouldPersistTaps="handled" enableOnAndroid>
+            <KeyboardAwareScrollView keyboardShouldPersistTaps="handled">
                 <Formik<Printer>
                     initialValues={{
                         id: (Math.random() * Date.now()).toFixed(0),

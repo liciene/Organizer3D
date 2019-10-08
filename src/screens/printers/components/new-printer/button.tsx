@@ -10,7 +10,7 @@ interface Props {
 const ButtonComponent = (props: Props) => {
     const { handleSubmit } = props;
     return (
-        <Button onPress={handleSubmit} style={styles.container}>
+        <Button mode="contained" onPress={handleSubmit} style={styles.container}>
             Save
         </Button>
     );
