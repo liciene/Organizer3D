@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { FlatList, View } from 'react-native';
-import { Appbar, FAB, Text } from 'react-native-paper';
+import { FlatList } from 'react-native';
+import { Appbar, FAB } from 'react-native-paper';
 import { NavigationInjectedProps } from 'react-navigation';
 import { NavigationStackOptions } from 'react-navigation-stack';
 import { connect } from 'react-redux';
@@ -8,7 +8,7 @@ import { bindActionCreators, Dispatch } from 'redux';
 
 import StatusBar from '../../../components/status-bar';
 import { RootActions, RootState } from '../../../config/store/typescript';
-import { RenderItem } from '../components/printers-list';
+import { EmptyList, RenderItem } from '../components/printers-list';
 import * as printersActions from '../store/actions';
 import { Printer } from '../store/typescript';
 import styles from './styles/printers-list';
@@ -50,11 +50,7 @@ class PrintersList extends React.Component<Props> {
         );
     };
 
-    protected ListEmptyComponent = () => (
-        <View>
-            <Text>Empty</Text>
-        </View>
-    );
+    protected ListEmptyComponent = () => <EmptyList />;
 
     protected handleAddPrinter = () => {
         const { navigation } = this.props;
