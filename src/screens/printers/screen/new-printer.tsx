@@ -1,8 +1,8 @@
 import { Formik, FormikProps } from 'formik';
 import * as React from 'react';
 import { View } from 'react-native';
-import { Header } from 'react-native-elements';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { Appbar } from 'react-native-paper';
 import { NavigationInjectedProps } from 'react-navigation';
 import { NavigationStackOptions } from 'react-navigation-stack';
 import { connect } from 'react-redux';
@@ -19,14 +19,10 @@ import { Props } from './typescript/new-printer';
 class NewPrinter extends React.Component<Props> {
     public static navigationOptions = ({ navigation }: NavigationInjectedProps): NavigationStackOptions => ({
         header: () => (
-            <Header
-                leftComponent={{
-                    icon: 'arrow-left',
-                    type: 'material-community',
-                    onPress: () => navigation.goBack(),
-                }}
-                centerComponent={{ text: 'New Printer' }}
-            />
+            <Appbar.Header>
+                <Appbar.BackAction onPress={() => navigation.goBack()} />
+                <Appbar.Content title="New Printer" />
+            </Appbar.Header>
         ),
     });
 

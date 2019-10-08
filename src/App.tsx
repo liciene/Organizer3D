@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ThemeProvider } from 'react-native-elements';
+import { Provider as ThemeProvider } from 'react-native-paper';
 import { useScreens } from 'react-native-screens';
 import { Provider } from 'react-redux';
 

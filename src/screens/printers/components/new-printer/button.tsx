@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button } from 'react-native-elements';
+import { Button } from 'react-native-paper';
 
 import styles from './styles/button';
 
@@ -9,7 +9,11 @@ interface Props {
 
 const ButtonComponent = (props: Props) => {
     const { handleSubmit } = props;
-    return <Button title="Save" onPress={handleSubmit} buttonStyle={styles.container} />;
+    return (
+        <Button onPress={handleSubmit} style={styles.container}>
+            Save
+        </Button>
+    );
 };
 
 export default ButtonComponent;
