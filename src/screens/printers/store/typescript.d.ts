@@ -37,9 +37,23 @@ interface AddNewPrinterFulFilled {
         printer: Printer;
     };
 }
+
+interface DeletePrinter {
+    type: typeof types.DELETE_PRINTER;
+    payload: {
+        id: string;
+    };
+}
+
+interface SelectPrinter {
+    type: typeof types.SELECT_PRINTER;
+    payload: {
+        id: string;
+    };
+}
 // #endregion
 
-export type Actions = AddNewPrinter | AddNewPrinterFulFilled;
+export type Actions = AddNewPrinter | AddNewPrinterFulFilled | DeletePrinter | SelectPrinter;
 
 export interface State {
     loading: boolean;

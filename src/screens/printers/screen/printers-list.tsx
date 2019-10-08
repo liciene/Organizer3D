@@ -31,9 +31,17 @@ class PrintersList extends React.Component<Props> {
         this.handleItemPress = this.handleItemPress.bind(this);
     }
 
-    protected handleSelectPrinter = () => {};
+    protected handleSelectPrinter = (id: string) => {
+        const { printersDispatch } = this.props;
 
-    protected handleDeletePrinter = () => {};
+        printersDispatch.selectPrinter(id);
+    };
+
+    protected handleDeletePrinter = (id: string) => {
+        const { printersDispatch } = this.props;
+
+        printersDispatch.deletePrinter(id);
+    };
 
     protected handleItemPress = () => {};
 
@@ -71,6 +79,8 @@ class PrintersList extends React.Component<Props> {
                     renderItem={this.renderItem}
                     ListEmptyComponent={this.ListEmptyComponent}
                     refreshing={printersReducer.loading}
+                    extraData={printersReducer.printers.length}
+                    keyExtractor={item => item.id}
                 />
                 <FAB icon="add" style={styles.fab} onPress={this.handleAddPrinter} />
             </>
@@ -80,7 +90,6 @@ class PrintersList extends React.Component<Props> {
 
 const mapStateToProps = (state: RootState) => ({
     printersReducer: state.printerReducer,
-    generalReducers: state.generalReducer,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<RootActions>) => ({
