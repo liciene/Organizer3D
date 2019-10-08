@@ -1,23 +1,23 @@
-import { Theme } from 'react-native-elements';
+import { DefaultTheme, Theme } from 'react-native-paper';
 
 export const lightTheme: Theme = {
+    ...DefaultTheme,
     colors: {
+        ...DefaultTheme.colors,
         primary: '#7bb241',
-        secondary: '#1e88e5',
+        accent: '#1e88e5',
         error: '#e53935',
-    },
-    Header: {
-        centerComponent: {
-            style: { fontSize: 18 },
-        },
+        background: '#fff',
     },
 };
 
 export const darkTheme: Theme = {
+    ...DefaultTheme,
+    dark: true,
     colors: {
+        ...DefaultTheme.colors,
         primary: '#200149',
-        secondary: '#004d40',
-        error: '#e53935',
+        accent: '#004d40',
     },
 };
 

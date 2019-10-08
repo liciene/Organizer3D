@@ -1,12 +1,17 @@
 import * as React from 'react';
-import { View } from 'react-native';
-import { TextField, TextFieldProps } from 'react-native-material-textfield';
+import { TextInputProps, View } from 'react-native';
+import { HelperText, TextInput } from 'react-native-paper';
 
 import styles from './styles/input';
 
-type Ref = React.Ref<TextField>;
+type Ref = React.Ref<TextInput>;
 
-const InputComponent = React.forwardRef((props: TextFieldProps, ref: Ref) => {
+interface Props extends TextInputProps {
+    error: string;
+    label: string;
+}
+
+const InputComponent = React.forwardRef((props: Props, ref: Ref) => {
     const {
         value,
         error,
@@ -15,29 +20,27 @@ const InputComponent = React.forwardRef((props: TextFieldProps, ref: Ref) => {
         onSubmitEditing,
         returnKeyType,
         placeholder,
-        prefix,
-        suffix,
-        characterRestriction,
         keyboardType,
         autoFocus,
     } = props;
     return (
         <View style={styles.container}>
-            <TextField
+            <TextInput
                 autoFocus={autoFocus}
+                mode="outlined"
                 ref={ref}
                 value={value}
                 label={label}
-                suffix={suffix}
-                error={error}
+                error={!!error}
                 onSubmitEditing={onSubmitEditing}
                 onChangeText={onChangeText}
                 keyboardType={keyboardType}
                 returnKeyType={returnKeyType}
                 placeholder={placeholder}
-                prefix={prefix}
-                characterRestriction={characterRestriction}
             />
+            <HelperText visible={!!error} type="error">
+                {error}
+            </HelperText>
         </View>
     );
 });

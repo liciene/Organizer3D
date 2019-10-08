@@ -21,7 +21,8 @@ DerivedData
 *.ipa
 *.xcuserstate
 project.xcworkspace
-
+__cache__
+coverage/**
 # Android/IntelliJ
 #
 build/
