@@ -21,7 +21,7 @@ interface Props {
     selected: boolean;
     handleDeletePrinter: (id: string) => void;
     handleSelectPrinter: (id: string) => void;
-    handleEditPrinter: (id: string) => void;
+    handleEditPrinter: (item: Printer) => void;
     theme: Theme;
 }
 
@@ -68,7 +68,7 @@ const RenderItem = (props: Props) => {
                         title="Edit"
                         onPress={() => {
                             handleMenuVisible(false);
-                            handleEditPrinter(item.id);
+                            handleEditPrinter(item);
                         }}
                     />
                 </Menu>

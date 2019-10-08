@@ -3,7 +3,6 @@ import * as React from 'react';
 import { View } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { Appbar } from 'react-native-paper';
-import { NavigationInjectedProps } from 'react-navigation';
 import { NavigationStackOptions } from 'react-navigation-stack';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
@@ -14,10 +13,10 @@ import validationSchema from '../services/new-printer/validationSchema';
 import * as printerActions from '../store/actions';
 import { Printer } from '../store/typescript';
 import styles from './styles/new-printer';
-import { Props } from './typescript/new-printer';
+import { Navigation, Props } from './typescript/new-printer';
 
 class NewPrinter extends React.Component<Props> {
-    public static navigationOptions = ({ navigation }: NavigationInjectedProps): NavigationStackOptions => ({
+    public static navigationOptions = ({ navigation }: { navigation: Navigation }): NavigationStackOptions => ({
         header: () => (
             <Appbar.Header>
                 <Appbar.BackAction onPress={() => navigation.goBack()} />
@@ -39,16 +38,21 @@ class NewPrinter extends React.Component<Props> {
     };
 
     public render() {
+        const { navigation } = this.props;
+        const initialState = navigation.state.params
+            ? navigation.state.params.item
+            : {
+                  id: (Math.random() * Date.now()).toFixed(0),
+                  name: '',
+                  model: '',
+                  cost: '',
+                  wattsUsage: '',
+              };
+
         return (
             <KeyboardAwareScrollView keyboardShouldPersistTaps="handled">
                 <Formik<Printer>
-                    initialValues={{
-                        id: (Math.random() * Date.now()).toFixed(0),
-                        name: '',
-                        model: '',
-                        cost: '',
-                        wattsUsage: '',
-                    }}
+                    initialValues={initialState}
                     validateOnBlur={false}
                     validateOnChange={false}
                     validationSchema={validationSchema}

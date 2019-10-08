@@ -7,7 +7,7 @@ import styles from './styles/input';
 type Ref = React.Ref<TextInput>;
 
 interface Props extends TextInputProps {
-    error: string;
+    error?: string;
     label: string;
 }
 

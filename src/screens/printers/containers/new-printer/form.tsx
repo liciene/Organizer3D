@@ -33,7 +33,7 @@ export default class Form extends React.PureComponent<Props> {
                     returnKeyType="next"
                     onChangeText={text => setFieldValue('name', text)}
                     onSubmitEditing={() => {
-                        this.model.focus();
+                        if (this.model) this.model.focus();
                     }}
                 />
                 <Input
@@ -47,7 +47,7 @@ export default class Form extends React.PureComponent<Props> {
                     value={values.model}
                     returnKeyType="next"
                     onSubmitEditing={() => {
-                        this.cost.focus();
+                        if (this.cost) this.cost.focus();
                     }}
                 />
                 <Input
@@ -62,7 +62,7 @@ export default class Form extends React.PureComponent<Props> {
                     value={values.cost}
                     returnKeyType="next"
                     onSubmitEditing={() => {
-                        this.watts.focus();
+                        if (this.watts) this.watts.focus();
                     }}
                 />
                 <Input

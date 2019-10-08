@@ -10,7 +10,8 @@
         "resolveJsonModule": true,
         "skipLibCheck": true,
         "noImplicitAny": true,
-        "removeComments": true
+        "removeComments": true,
+        "strictNullChecks": true
     },
     "include": ["src/**/*"],
     "exclude": ["android", "ios", "compiled", "__tests__/**/*.test.ts"]

@@ -43,7 +43,11 @@ class PrintersList extends React.Component<Props> {
         printersDispatch.deletePrinter(id);
     };
 
-    protected handleEditPrinter = () => {};
+    protected handleEditPrinter = (item: Printer) => {
+        const { navigation } = this.props;
+
+        navigation.navigate('newPrinter', { item });
+    };
 
     protected renderItem = ({ item }: { item: Printer }) => {
         const { printersReducer } = this.props;

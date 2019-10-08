@@ -14,10 +14,20 @@ const printersReducer = (state: State = initialState, action: Actions): State =>
 
         case types.ADD_NEW_PRINTER_FULFILLED: {
             const printersList = state.printers;
+            let { printerSelected } = state;
+            const printerIndex = printersList.findIndex(item => item.id === action.payload.printer.id);
 
-            printersList.push(action.payload.printer);
+            if (printerIndex >= 0) {
+                printersList.splice(printerIndex, 1, action.payload.printer);
 
-            return { ...state, loading: false };
+                if (printerSelected && printerSelected.id === action.payload.printer.id) {
+                    printerSelected = action.payload.printer;
+                }
+            } else {
+                printersList.push(action.payload.printer);
+            }
+
+            return { ...state, loading: false, printerSelected };
         }
         case types.DELETE_PRINTER: {
             const printerList = state.printers;
