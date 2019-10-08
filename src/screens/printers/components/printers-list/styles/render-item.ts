@@ -4,7 +4,6 @@ const styles = StyleSheet.create({
     container: {
         height: 80,
         elevation: 4,
-
         marginHorizontal: 20,
         marginVertical: 10,
         borderRadius: 20,

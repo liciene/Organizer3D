@@ -1,6 +1,16 @@
 import * as React from 'react';
 import { View } from 'react-native';
-import { Divider, IconButton, Menu, Subheading, Surface, Title, TouchableRipple } from 'react-native-paper';
+import {
+    Divider,
+    IconButton,
+    Menu,
+    Subheading,
+    Surface,
+    Theme,
+    Title,
+    TouchableRipple,
+    withTheme,
+} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import { Printer } from '../../store/typescript';
@@ -11,17 +21,23 @@ interface Props {
     selected: boolean;
     handleDeletePrinter: (id: string) => void;
     handleSelectPrinter: (id: string) => void;
-    handleItemPress: (id: string) => void;
+    handleEditPrinter: (id: string) => void;
+    theme: Theme;
 }
 
 const RenderItem = (props: Props) => {
-    const { item, selected, handleDeletePrinter, handleItemPress, handleSelectPrinter } = props;
+    const { item, selected, handleDeletePrinter, handleEditPrinter, handleSelectPrinter, theme } = props;
 
     const [menuVisible, handleMenuVisible] = React.useState(false);
 
     return (
-        <Surface style={styles.container}>
-            <TouchableRipple onPress={() => handleItemPress(item.id)} style={styles.subContainer}>
+        <Surface
+            style={[
+                styles.container,
+                { borderWidth: selected ? 2 : 0, borderColor: selected ? theme.colors.primary : 'transparent' },
+            ]}
+        >
+            <TouchableRipple onPress={() => handleSelectPrinter(item.id)} style={styles.subContainer}>
                 <>
                     <View style={styles.iconContainer}>
                         <Icon name={selected ? 'printer-3d-nozzle-outline' : 'printer-3d'} size={32} />
@@ -48,11 +64,11 @@ const RenderItem = (props: Props) => {
                     />
                     <Divider />
                     <Menu.Item
-                        icon="check"
-                        title="Select"
+                        icon="edit"
+                        title="Edit"
                         onPress={() => {
                             handleMenuVisible(false);
-                            handleSelectPrinter(item.id);
+                            handleEditPrinter(item.id);
                         }}
                     />
                 </Menu>
@@ -61,4 +77,4 @@ const RenderItem = (props: Props) => {
     );
 };
 
-export default RenderItem;
+export default withTheme(RenderItem);
