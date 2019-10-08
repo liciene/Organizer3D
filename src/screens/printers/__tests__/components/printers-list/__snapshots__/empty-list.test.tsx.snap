@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`=== PRINTERS === COMPONENTS === PrinterList --- EmptyList should render and is equal 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "rgba(0,0,0,0.5)",
+      "height": 1334,
+      "padding": 12,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+      }
+    }
+  >
+    <Icon
+      allowFontScaling={false}
+      color="#fff"
+      name="emoticon-sad-outline"
+      size={64}
+    />
+    <Text
+      style={
+        Object {
+          "color": "#fff",
+          "fontSize": 32,
+          "textAlign": "center",
+        }
+      }
+    >
+      The list is empty, please add a printer
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#fff",
+        "borderRadius": 200,
+        "bottom": 10,
+        "height": 200,
+        "position": "absolute",
+        "right": -50,
+        "width": 200,
+      }
+    }
+  />
+</View>
+`;

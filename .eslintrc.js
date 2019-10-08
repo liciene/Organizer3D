@@ -5,15 +5,15 @@ module.exports = {
         'airbnb-typescript',
         'airbnb-typescript-prettier',
         'esnext',
-        'eslint:recommended'
+        'eslint:recommended',
     ],
 
     parserOptions: {
         ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
         sourceType: 'module', // Allows for the use of imports
         ecmaFeatures: {
-            jsx: true // Allows for the parsing of JSX
-        }
+            jsx: true, // Allows for the parsing of JSX
+        },
     },
     rules: {
         // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
@@ -22,13 +22,13 @@ module.exports = {
         'import/no-namespace': 'off',
         'import/no-cycle': [2, { maxDepth: 1 }],
         'no-invalid-this': 'off',
-        'import/prefer-default-export': 'off'
+        'import/prefer-default-export': 'off',
     },
     settings: {
         'import/resolver': {
             node: {
-                extensions: ['.js', '.jsx', '.ts', '.tsx', '.d.ts']
-            }
-        }
-    }
+                extensions: ['.js', '.jsx', '.ts', '.tsx', '.d.ts'],
+            },
+        },
+    },
 };
