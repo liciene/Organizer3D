@@ -26,12 +26,38 @@ export default class Form extends React.PureComponent<Props> {
             <View>
                 <Input
                     autoFocus
+                    label="Company"
+                    placeholder="Insert the printer company (Ex: PYD)"
+                    error={errors.company}
+                    value={values.company}
+                    returnKeyType="next"
+                    onChangeText={text => setFieldValue('company', text)}
+                    onSubmitEditing={() => {
+                        if (this.model) this.model.focus();
+                    }}
+                />
+
+                <Input
+                    autoFocus
                     label="Name"
                     placeholder="Insert the printer name (Ex: Prometheus)"
                     error={errors.name}
                     value={values.name}
                     returnKeyType="next"
                     onChangeText={text => setFieldValue('name', text)}
+                    onSubmitEditing={() => {
+                        if (this.model) this.model.focus();
+                    }}
+                />
+
+                <Input
+                    autoFocus
+                    label="Type"
+                    placeholder="Insert the printer type (Ex: ?)"
+                    error={errors.type}
+                    value={values.type}
+                    returnKeyType="next"
+                    onChangeText={text => setFieldValue('type', text)}
                     onSubmitEditing={() => {
                         if (this.model) this.model.focus();
                     }}
