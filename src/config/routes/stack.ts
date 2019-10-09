@@ -1,5 +1,6 @@
 import { createStackNavigator } from 'react-navigation-stack';
 
+import { FilamentsList, NewFilament } from '../../screens/filaments';
 import { NewPrinter, PrintersList } from '../../screens/printers';
 
 const PrinterStack = createStackNavigator({
@@ -11,4 +12,13 @@ const PrinterStack = createStackNavigator({
     },
 });
 
-export { PrinterStack };
+const FilamentStack = createStackNavigator({
+    filamentsList: {
+        screen: FilamentsList,
+    },
+    newFilament: {
+        screen: NewFilament,
+    },
+});
+
+export { PrinterStack, FilamentStack };
